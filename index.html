@@ -37,6 +37,7 @@
 
 <main>
 
+
 <!-- =========================
      HERO
 ========================= -->
@@ -83,6 +84,23 @@
 
 
 <script src="js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. 브라우저 저장소에서 works 페이지가 계산해 둔 숫자를 꺼내옵니다.
+    // 만약 아직 한번도 계산된 적이 없다면 기본값인 0으로 세팅합니다.
+    const youtubeCount = localStorage.getItem("works_youtube") || 0;
+    const shortsCount = localStorage.getItem("works_shorts") || 0;
+    const totalCount = localStorage.getItem("works_total") || 0;
+
+    // 2. 메인 페이지 화면(hero-scroll 구역)에 실시간 숫자를 대입합니다.
+    if(document.getElementById("youtube-count")) {
+        document.getElementById("youtube-count").innerText = youtubeCount;
+        document.getElementById("shorts-count").innerText = shortsCount;
+        document.getElementById("total-count").innerText = totalCount;
+    }
+});
+</script>
 
 </body>
 </html>

@@ -590,6 +590,22 @@
 
 
     <script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. works 페이지에 배치된 모든 영상(.project)의 개수를 구합니다.
+    const allProjects = document.querySelectorAll(".project");
+    const shortsProjects = document.querySelectorAll('.project[data-category="shorts"]');
+    
+    const totalCount = allProjects.length;
+    const shortsCount = shortsProjects.length;
+    const youtubeCount = totalCount - shortsCount;
+
+    // 2. 이 숫자들을 브라우저 임시 기억 장소(localStorage)에 박아둡니다.
+    localStorage.setItem("works_total", totalCount);
+    localStorage.setItem("works_shorts", shortsCount);
+    localStorage.setItem("works_youtube", youtubeCount);
+});
+</script>
 
 </body>
 
